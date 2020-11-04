@@ -1,0 +1,39 @@
+<div class="container">
+    <header class="jumbotron">
+        <p>{{ content }}</p>
+    </header>
+
+    <aside class="menu-sidebar d-none d-lg-block">
+        <!-- STATIC SIDEBAR -->
+        <div class="menu-sidebar-content js-scrollbar1">
+            <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar-list">
+                <li>
+                <a routerLink="/livestock" routerLinkActive="active-link" >Livestock</a>
+                </li>
+                <!-- <li>
+                <a routerLink="/category/2" routerLinkActive="active-link">Coffee Mugs</a>
+                </li>
+                <li>
+                <a routerLink="/category/3" routerLinkActive="active-link">Mouse Pads</a>
+                </li>
+                <li>
+                <a routerLink="/category/4" routerLinkActive="active-link">Luggage Tags</a>
+                </li>
+                <li>
+                <a routerLink="/prodCat" routerLinkActive="active-link">Add new Category</a>
+                </li> -->
+            </ul>
+            </nav>
+        </div> 
+    </aside>
+
+    <!-- PAGE CONTAINER-->
+  <div class="page-container">
+    <!-- MAIN CONTENT-->
+    <router-outlet></router-outlet>    
+    <!-- END MAIN CONTENT-->
+  </div>
+
+
+</div>

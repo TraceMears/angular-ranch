@@ -1,0 +1,36 @@
+<!-- <div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-3" *ngFor="let loop of activeList" >
+                    <div>
+                        <h1>Task name: {{loop.task_name}}</h1>
+                    </div>
+
+                    <button class="btn btn-primary" (click)="taskCompleted(loop)">Complete Task</button>
+                </div>           
+        </div>
+    </div>
+</div> -->
+<br>
+<br>
+<br>
+
+<table class="table table-bordered mx-5">
+    <tr>
+        <th width="30%">Task Name</th>
+        <th width="15%">Press for completed task</th>
+    </tr>
+
+    <tr *ngFor="let loop of activeList">
+
+        <td>
+            <p>{{loop.task_name}}</p>
+        </td>
+
+        <td>
+            <button class="btn btn-primary" (click)="taskCompleted(loop)">Complete Task</button>
+        </td>
+    </tr>
+</table>

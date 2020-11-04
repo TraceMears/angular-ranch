@@ -1,0 +1,54 @@
+<table class="table table-bordered">
+    <tr>
+        <th width="20%">Livestock Image</th>
+        <th width="50%">Livestock Detail</th>
+        <th width="30%"></th>
+    </tr>
+
+    <tr *ngFor="let tempCart of cartItems">
+        
+        <td ngSwitch={{tempCart.stock_type}}>
+            <div *ngSwitchCase="'cattle'" >
+                <img src="assets/images/cattle.png" class="img-responsive">
+            </div>
+            <div *ngSwitchCase="'pig'" >
+                <img src="assets/images/pig.png" class="img-responsive">
+            </div>
+            <div *ngSwitchCase="'chicken'" >
+                <img src="assets/images/chicken.png" class="img-responsive">
+            </div>                            
+        </td>
+
+        <td>
+            <p>Livestock id: {{tempCart.stock_id}}</p>
+            <p>Livestock type: {{tempCart.stock_type}}</p>
+            <p>Age: {{tempCart.age}}</p>
+            <p>Gender: {{tempCart.gender}}</p>
+            <p>Weight: {{tempCart.weight}}</p>
+            <p>{{tempCart.price | currency: 'USD'}}</p>
+        </td>
+
+        <td>
+            <div class="items">
+                <label>Quantity: </label> {{tempCart.quantity}}
+            </div>
+            <button (click)="removeFromCart(tempCart)" class="btn btn-primary btn-sm">Remove</button>
+            <p class="mt-2">
+                Subtotal: {{tempCart.quantity * tempCart.price | currency: 'USD'}}
+            </p>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td colspan="2"></td>
+        <td style="font-weight: bold">
+            <p>Total Quantity: {{totalQuantity}} </p>
+            <p>Total Price: {{totalPrice | currency: 'USD'}}</p>
+
+            <a routerLink="/checkout" class="btn btn-primary">Checkout</a>
+        </td>
+        
+    </tr>
+
+</table>

@@ -1,0 +1,32 @@
+<form [formGroup]="taskFormGroup" (ngSubmit)="setActiveTask()" class="mx-5 mt-4">
+    <select formControlName="task" class="mx-2" style="height: 40px;">
+        <option [ngValue]="null" disabled>Choose task</option>
+        <option *ngFor="let option of inactiveList" [ngValue]="option">
+            {{option.task_name}}
+        </option>
+        
+    </select>
+    <button type="button" class="btn btn-primary" (click)="setActiveTask()">Set active task</button>
+</form>
+
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form [formGroup]="addTaskGroup" (ngSubmit)="newTask()" class="mx-5">
+    
+    
+        <label>New Task name</label>
+        <input formControlName="newTask" required type="text" class="form-control w-25" >
+    
+
+    <div class="text-left">
+        <button type="submit" class="btn btn-info my-1">Add task</button>
+    </div>
+
+</form>

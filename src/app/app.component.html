@@ -1,0 +1,131 @@
+<div id="app">
+
+<!-- 
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </div>
+    </div>
+  </nav> -->
+
+
+
+
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a href="#" class="navbar-brand px-2 py-3">Ranch Management</a>
+    
+    
+    <div class="btn-group" *ngIf="showCustomerBoard" >
+      <button type="button" class="btn text-white btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Customer options
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="/livestock">Livestock store</a>
+        
+      </div>
+    </div>
+
+    
+
+    <div class="btn-group" *ngIf="showEmployeeBoard" >
+      <button type="button" class="btn text-white btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Employee options
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="/tasks-emp">Employee Tasks</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" routerLink="/livestock-emp">Employee lifestock</a>        
+        
+      </div>
+    </div>
+
+    <div class="btn-group" *ngIf="showAdminBoard" >
+      <button type="button" class="btn text-white btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Admin options
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="/tasks-admin">Set tasks</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" routerLink="/view-emp-tasks">View Employee tasks</a>  
+        <!-- <div class="dropdown-divider"></div>
+        <a class="dropdown-item" routerLink="/set-roles">Set User role</a>       -->
+        
+      </div>
+    </div>
+
+
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/home" class="nav-link" routerLink="home">Home </a>
+      </li>
+
+
+      <!-- <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+      </li>
+
+
+      <li class="nav-item" *ngIf="showEmployeeBoard">
+        <a class="nav-link" routerLink="employee">Employee Board</a>
+      </li>
+
+
+      <li class="nav-item" *ngIf="showCustomerBoard">
+        <a href="/customer" class="nav-link" routerLink="customer">Customer Board</a>
+      </li>
+
+
+      <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+      </li> -->
+      
+    </ul>
+    <div *ngIf="showCustomerBoard">
+      <app-cart-status></app-cart-status>
+    </div>
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="profile">{{ email }}</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">LogOut</a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+
+
+  <footer class="footer w-100">
+    <div>
+      <span>
+        <p>Contact us!</p>
+        <p>© 2017-2020 Big Ranch, Inc.</p>
+        <p>1 800 RANCH</p>
+        <a routerLink="/email">Email us!</a>
+      </span>
+    </div>
+  </footer>
+</div>

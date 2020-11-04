@@ -1,0 +1,50 @@
+<div class="main-content">
+    <div class="mb-5">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-3 card card-container mx-2 my-2" *ngFor="let loopStock of livestockList" >
+                    <div class="product-box">
+                        <a routerLink="/livestock/{{loopStock.stock_id}}" ngSwitch={{loopStock.stock_type}}>
+                            <div *ngSwitchCase="'cattle'" >
+                                <img src="assets/images/cattle.png" class="img-responsive">
+                            </div>
+                            <div *ngSwitchCase="'pig'" >
+                                <img src="assets/images/pig.png" class="img-responsive">
+                            </div>
+                            <div *ngSwitchCase="'chicken'" >
+                                <img src="assets/images/chicken.png" class="img-responsive">
+                            </div>                            
+                        </a>
+                        <br/>
+                        <a routerLink="/livestock/{{loopStock.stock_id}}">
+                            <h1>Livestock Id: {{loopStock.stock_id}}</h1>
+                        </a>
+                        <h2>{{loopStock.age}} months</h2>
+                        <h2>{{loopStock.weight}} pounds</h2>
+                        <h2>Gender: {{loopStock.gender}}</h2>
+                       
+                        <br>
+
+                        <!-- <form>
+                            <div class="form-group">
+                                <label for="newWeight" >Updated Weight</label>
+                                <input ngModel name="newWeight" id="newWeight" type="number" class="form-group">
+                            </div>
+                        </form> -->
+                       
+
+                        <form [formGroup]="updatedWeight" (ngSubmit)="changeCowWeight(loopStock)">
+                            <label for="updatedWeight" >Updated Weight:</label>
+                            <input type="number" formControlName="whatever" class="form-control mb-2 w-50">
+                            <button class="btn btn-primary">Update Weight</button>
+                        </form>
+                        <!-- <button (click)="changeCowWeight(loopStock)">Update weight</button>  -->
+
+                                       
+                </div>                           
+
+            </div>           
+        </div>
+    </div>
+</div>

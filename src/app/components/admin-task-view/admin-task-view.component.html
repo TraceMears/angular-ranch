@@ -1,0 +1,43 @@
+
+<form [formGroup]="selectEmployeeFormGroup" (ngSubmit)="selectEmployee()" class="mx-5 mt-4">
+    <select formControlName="employee" class="form-group" class="mx-2" style="height: 40px;">
+        <option [ngValue]="null" disabled>Employee</option>
+        <option *ngFor="let emp of empList" [ngValue]="emp">
+            {{emp.name}}
+        </option>
+        
+    </select>
+    <button class="btn btn-primary" type="button" (click)="selectEmployee()">Select Employee</button>
+</form>
+
+<br>
+<br>
+<br>
+<br>
+
+<div *ngIf="employeeActive" class="mx-5">
+    <p>{{currentEmployee.name}}'s completed tasks:</p>
+
+    <table class="table table-bordered">
+        <tr>            
+            <th width="40%">Task name</th>
+            <th width="20%">Date/Time Completed</th>
+        </tr>
+
+        <tr *ngFor="let task of empTaskList">
+            
+            <td>
+                <p>{{task.task_name}}</p>
+            </td>
+
+            <td>
+                <p>{{task.timeCompleted | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+
+
+
